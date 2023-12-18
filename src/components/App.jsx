@@ -11,7 +11,6 @@ export class App extends Component {
 
   handleClick = event => {
     let sign = event.target.dataset.sign;
-    console.log(sign);
     this.setState(prevState => prevState.counter += sign === '+' ? 1 : -1);
   }
 
