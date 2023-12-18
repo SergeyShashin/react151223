@@ -7,6 +7,16 @@ export class Counter extends Component {
     this.state = {
       counter: 0
     }
+
+    this.interval = null;
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => console.log('го'), 500);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   handleClick = event => {

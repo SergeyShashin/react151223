@@ -8,6 +8,7 @@ export class App extends Component {
     this.state = {
       isVisible: false
     }
+
   }
 
   handleClickToggle = () => {
