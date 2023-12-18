@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
+import { Counter } from 'components/Counter';
 
 export class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      counter: 0
+      isVisible: false
     }
   }
 
-  handleClick = event => {
-    let sign = event.target.dataset.sign;
-    this.setState(prevState => prevState.counter += sign === '+' ? 1 : -1);
+  handleClickToggle = () => {
+    this.setState({ isVisible: !this.state.isVisible });
   }
 
   render() {
+    let { isVisible } = this.state;
 
     return (
       <div>
-        <button data-sign='+' onClick={this.handleClick}>+</button>
-        <span>{this.state.counter}</span>
-        <button data-sign='-' onClick={this.handleClick}>-</button>
+        <button onClick={this.handleClickToggle}>Toggle</button>
+        {isVisible && <Counter />}
       </div>
     );
 
