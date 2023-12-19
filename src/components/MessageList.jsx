@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Message } from 'components/Message';
+
 import PropTypes from 'prop-types';
 
 
@@ -15,7 +17,7 @@ export class MessageList extends Component {
     return (
       <div>
         <ul>
-          {messages.map((message, idx) => <li key={idx}>{message.author}: {message.text}</li>)}
+          {messages.map((message, idx) => <Message message={message} key={idx} />)}
         </ul>
       </div>
     );
