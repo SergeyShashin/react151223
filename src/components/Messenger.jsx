@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { MessageForm } from 'components/MessageForm';
 import { MessageList } from 'components/MessageList';
 
-const messages = [
-  { text: 'Привет, друг!', author: 'Дмитрий' },
-  { text: 'Как твои дела?', author: 'Дмитрий' },
-  { text: 'Как настроение?', author: 'Дмитрий' },
-  { text: 'Как погода?', author: 'Дмитрий' },
-];
+// const messages = [
+//   { text: 'Привет, друг!', author: 'Дмитрий' },
+//   { text: 'Как твои дела?', author: 'Дмитрий' },
+//   { text: 'Как настроение?', author: 'Дмитрий' },
+//   { text: 'Как погода?', author: 'Дмитрий' },
+// ];
 
 export class Messenger extends Component {
   constructor(props) {
@@ -17,15 +17,15 @@ export class Messenger extends Component {
       messages: []
     }
 
-    this.interval = null;
+    // this.interval = null;
   }
 
-  componentDidMount() {
-    this.interval = setInterval(() => {
-      let randIdx = Math.floor(Math.random() * messages.length);
-      this.setState({ messages: this.state.messages.concat([{ text: messages[randIdx].text, author: messages[randIdx].author }]) });
-    }, 3000);
-  }
+  // componentDidMount() {
+  //   this.interval = setInterval(() => {
+  //     let randIdx = Math.floor(Math.random() * messages.length);
+  //     this.setState({ messages: this.state.messages.concat([{ text: messages[randIdx].text, author: messages[randIdx].author }]) });
+  //   }, 3000);
+  // }
 
   componentDidUpdate() {
     let { messages } = this.state;
@@ -38,12 +38,13 @@ export class Messenger extends Component {
     }
   }
 
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
+  // componentWillUnmount() {
+  //   clearInterval(this.interval);
+  // }
 
   handleMessageSend = (message) => {
-    this.setState({ messages: this.state.messages.concat([{ text: message.text, author: message.author }]) });
+    // this.setState({ messages: this.state.messages.concat([{ text: message.text, author: message.author }]) });
+    this.setState(({ messages }) => ({ messages: messages.concat([message]) }));
   }
 
   render() {
