@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MessageForm } from 'components/MessageForm';
+import { MessageList } from 'components/MessageList';
 
 const messages = [
   { text: 'Привет, друг!', author: 'Дмитрий' },
@@ -47,14 +48,11 @@ export class Messenger extends Component {
 
   render() {
     let { messages } = this.state;
-    console.log(messages);
 
     return (
       <div>
         <MessageForm sendMessage={this.handleMessageSend} />
-        <ul>
-          {messages.map((message, idx) => <li key={idx}>{message.author}: {message.text}</li>)}
-        </ul>
+        <MessageList messages={messages} />
       </div>
     );
 
