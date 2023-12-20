@@ -1,3 +1,5 @@
+import './MessageList.scss';
+
 import React, { Component } from 'react';
 import { Message } from 'components/Message';
 
@@ -15,10 +17,8 @@ export class MessageList extends Component {
     let { messages } = this.props;
 
     return (
-      <div>
-        <ul>
+      <div className='messages-list'>
           {messages.map((message, idx) => <Message message={message} key={idx} />)}
-        </ul>
       </div>
     );
 

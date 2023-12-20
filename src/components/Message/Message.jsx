@@ -15,7 +15,7 @@ export class Message extends Component {
     let { message } = this.props;
 
     return (
-      <li class='message'>{message.author}: {message.text}</li>
+      <div className='message'>{message.author}: {message.text}</div>
     );
 
   }
