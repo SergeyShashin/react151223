@@ -1,3 +1,5 @@
+import './Message.scss';
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -10,10 +12,10 @@ export class Message extends Component {
 
 
   render() {
-    let { message} = this.props;
+    let { message } = this.props;
 
     return (
-      <li>{message.author}: {message.text}</li>
+      <li class='message'>{message.author}: {message.text}</li>
     );
 
   }
