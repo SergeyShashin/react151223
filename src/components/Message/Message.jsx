@@ -14,8 +14,16 @@ export class Message extends Component {
   render() {
     let { message } = this.props;
 
+    function getPositionMessage() {
+      return message.author === 'Bot' ? 'end' : 'start'
+    }
+
+
     return (
-      <div className='message'>{message.author}: {message.text}</div>
+      <div className='message' style={{ alignSelf: `flex-${getPositionMessage()}` }}>
+        <div>{message.text}</div>
+        <div className="sender">{message.author}</div>
+      </div>
     );
 
   }

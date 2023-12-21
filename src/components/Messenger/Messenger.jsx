@@ -44,7 +44,9 @@ export class Messenger extends Component {
 
   handleMessageSend = (message) => {
     // this.setState({ messages: this.state.messages.concat([{ text: message.text, author: message.author }]) });
-    this.setState(({ messages }) => ({ messages: messages.concat([message]) }));
+    if (message.text && message.author) {
+      this.setState(({ messages }) => ({ messages: messages.concat([message]) }));
+    }
   }
 
   render() {
