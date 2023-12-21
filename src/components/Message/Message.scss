@@ -6,10 +6,25 @@
   margin: 10px;
   display: flex;
   flex-direction: column;
+
+  &-owner {
+    align-self: flex-start;
+  }
+
+  &-companion {
+    align-self: flex-end;
+  }
+
+  .sender {
+    color: gray;
+    align-self: end;
+    font-size: 1em;
+  }
+
 }
 
-.sender {
-  color: gray;
-  align-self: end;
-  font-size: 1em;
-}
+// .sender {
+//   color: gray;
+//   align-self: end;
+//   font-size: 1em;
+// }
