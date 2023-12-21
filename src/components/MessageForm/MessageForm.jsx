@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
 
 
 export class MessageForm extends Component {
@@ -49,15 +53,20 @@ export class MessageForm extends Component {
 
     return (
       <div>
-        <p>
+        {/* <p>
           <label>Автор</label><br />
           <input id="author" name="author" type="text" value={author} onChange={this.handleInputChange} />
-        </p>
-        <p>
+        </p> */}
+        {/* <p>
           <label>Сообщение</label><br />
           <textarea id="text" name="text" cols="20" rows="5" value={text} onChange={this.handleInputChange} onKeyDown={this.handleEnter} ></textarea>
-        </p>
-        <button onClick={this.handleSend}>Send</button>
+        </p> */}
+        <TextField id="standard-basic"  name="author" label="Автор" variant="standard" value={author} onChange={this.handleInputChange} />
+        <TextField id="standard-basic" name="text" label="Сообщение" variant="standard" value={text} onChange={this.handleInputChange} onKeyDown={this.handleEnter} />
+        <Button onClick={this.handleSend} variant="contained" endIcon={<SendIcon />}>
+          Send
+        </Button>
+        {/* <button onClick={this.handleSend}>Send</button> */}
       </div>
     );
 
