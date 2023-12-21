@@ -37,6 +37,12 @@ export class MessageForm extends Component {
     }
   }
 
+  handleEnter = (event) => {
+    if (event.ctrlKey && event.keyCode === 13) {
+      this.handleSend();
+    }
+  }
+
 
   render() {
     let { author, text } = this.state;
@@ -49,7 +55,7 @@ export class MessageForm extends Component {
         </p>
         <p>
           <label>Сообщение</label><br />
-          <textarea id="text" name="text" cols="20" rows="5" value={text} onChange={this.handleInputChange} ></textarea>
+          <textarea id="text" name="text" cols="20" rows="5" value={text} onChange={this.handleInputChange} onKeyDown={this.handleEnter} ></textarea>
         </p>
         <button onClick={this.handleSend}>Send</button>
       </div>

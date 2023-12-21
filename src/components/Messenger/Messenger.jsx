@@ -54,8 +54,8 @@ export class Messenger extends Component {
 
     return (
       <div>
-        <MessageForm sendMessage={this.handleMessageSend} />
         <MessageList messages={messages} />
+        <MessageForm sendMessage={this.handleMessageSend} />
       </div>
     );
 
