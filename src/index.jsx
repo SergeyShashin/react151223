@@ -5,6 +5,8 @@ import ReactDom from 'react-dom/client';
 // import { App } from 'components/App';
 import { Messenger } from 'components/Messenger';
 
+import './assets/global.css';
+
 // console.log('Hi react!');
 
 // console.log(new User('Luke', 'SkyWalker').sayHi());

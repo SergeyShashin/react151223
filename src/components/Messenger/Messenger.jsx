@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { MessageForm } from 'components/MessageForm';
-import { MessageList } from 'components/MessageList';
+import { Layout } from 'components/Layout';
 
 // const messages = [
 //   { text: 'Привет, друг!', author: 'Дмитрий' },
@@ -45,7 +44,7 @@ export class Messenger extends Component {
   handleMessageSend = (message) => {
     // this.setState({ messages: this.state.messages.concat([{ text: message.text, author: message.author }]) });
     if (message.text && message.author) {
-      this.setState(({ messages }) => ({ messages: messages.concat([message]) }));      
+      this.setState(({ messages }) => ({ messages: messages.concat([message]) }));
     }
   }
 
@@ -54,8 +53,8 @@ export class Messenger extends Component {
 
     return (
       <div>
-        <MessageList messages={messages} />
-        <MessageForm sendMessage={this.handleMessageSend} />
+        <h2>Заголовок</h2>
+        <Layout messages={messages} handleMessageSend={this.handleMessageSend}/>
       </div>
     );
 

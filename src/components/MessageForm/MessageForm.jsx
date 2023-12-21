@@ -63,7 +63,7 @@ export class MessageForm extends Component {
         </p> */}
         <TextField id="standard-basic"  name="author" label="Автор" variant="standard" value={author} onChange={this.handleInputChange} />
         <TextField id="standard-basic" name="text" label="Сообщение" variant="standard" value={text} onChange={this.handleInputChange} onKeyDown={this.handleEnter} />
-        <Button onClick={this.handleSend} variant="contained" endIcon={<SendIcon />}>
+        <Button onClick={this.handleSend} variant="text" endIcon={<SendIcon />} style={{color: 'gray', marginTop:15}}>
           Send
         </Button>
         {/* <button onClick={this.handleSend}>Send</button> */}

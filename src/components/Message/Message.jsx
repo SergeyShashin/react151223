@@ -4,9 +4,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-
-
-
 export class Message extends Component {
 
   constructor(props) {
