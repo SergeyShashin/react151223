@@ -13,7 +13,7 @@ import { Messenger } from 'components/Messenger';
 import { AboutPage } from 'pages/AboutPage';
 
 import './assets/global.css';
-// import { routes } from './routes';
+import { ChatsList } from './components/ChatsList/ChatsList';
 
 // console.log('Hi react!');
 
@@ -44,15 +44,17 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Messenger />,
+    children: [
+      {
+        path: '/chats/:id',
+        element: <ChatsList />
+      }
+    ]
   },
-  {
-    path: '/about',
-    element: <AboutPage/>
-  },
-  {
-    path: '/chats/:id',
-    element: <Messenger/>
-  }
+  // {
+  //   path: '/about',
+  //   element: <AboutPage />
+  // },
 ]);
 
 ReactDom.createRoot(document.getElementById('root')).render(

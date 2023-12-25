@@ -13,7 +13,24 @@ export class Messenger extends Component {
     super(props);
 
     this.state = {
-      messages: []
+      messages: [],
+      chats: {
+        '1': {
+          id: 1,
+          messages: [],
+          name: 'Chat 1'
+        },
+        '2': {
+          id: 2,
+          messages: [],
+          name: 'Chat 2'
+        },
+        '3': {
+          id: 3,
+          messages: [],
+          name: 'Chat 3'
+        },
+      }
     }
 
     // this.interval = null;
@@ -28,13 +45,16 @@ export class Messenger extends Component {
 
   componentDidUpdate() {
     let { messages } = this.state;
-    let lastMessage = messages.length - 1;
-    let author = messages[lastMessage].author !== 'Bot' ? messages[lastMessage].author : null;
-    if (author) {
-      setTimeout(() => {
-        this.setState({ messages: this.state.messages.concat([{ text: `Здравствуй, ${author}!). Добро пожаловать!)`, author: 'Bot' }]) });
-      }, 1000);
+    if (messages.length) {
+      let lastMessage = messages.length - 1;
+      let author = messages[lastMessage].author !== 'Bot' ? messages[lastMessage].author : null;
+      if (author) {
+        setTimeout(() => {
+          this.setState({ messages: this.state.messages.concat([{ text: `Здравствуй, ${author}!). Добро пожаловать!)`, author: 'Bot' }]) });
+        }, 1000);
+      }
     }
+
   }
 
   // componentWillUnmount() {
@@ -44,13 +64,13 @@ export class Messenger extends Component {
   handleMessageSend = (message) => {
     // this.setState({ messages: this.state.messages.concat([{ text: message.text, author: message.author }]) });
     if (message.text && message.author) {
+      console.log(this.props);
       this.setState(({ messages }) => ({ messages: messages.concat([message]) }));
     }
   }
 
   render() {
     let { messages } = this.state;
-    console.log(this.props);
 
     return (
       <div>
