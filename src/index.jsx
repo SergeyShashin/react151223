@@ -2,10 +2,18 @@
 import React from 'react';
 // import ReactDom from 'react-dom';
 import ReactDom from 'react-dom/client';
+// import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
 // import { App } from 'components/App';
 import { Messenger } from 'components/Messenger';
+import { AboutPage } from 'pages/AboutPage';
 
 import './assets/global.css';
+// import { routes } from './routes';
 
 // console.log('Hi react!');
 
@@ -31,4 +39,33 @@ import './assets/global.css';
 // );
 
 // ReactDom.createRoot(document.getElementById('root')).render(<App />);
-ReactDom.createRoot(document.getElementById('root')).render(<Messenger />);
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Messenger />,
+  },
+  {
+    path: '/about',
+    element: <AboutPage/>
+  },
+  {
+    path: '/chats/:id',
+    element: <Messenger/>
+  }
+]);
+
+ReactDom.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
+
+{/* <Messenger path='/' /> */ }
+
+{/* <BrowserRouter>
+    <Switch>
+      
+    </Switch>
+  </BrowserRouter> */}
+

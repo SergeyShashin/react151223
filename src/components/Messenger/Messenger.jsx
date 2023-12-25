@@ -50,11 +50,12 @@ export class Messenger extends Component {
 
   render() {
     let { messages } = this.state;
+    console.log(this.props);
 
     return (
       <div>
         <h2>Заголовок</h2>
-        <Layout messages={messages} handleMessageSend={this.handleMessageSend}/>
+        <Layout messages={messages} handleMessageSend={this.handleMessageSend} />
       </div>
     );
 
