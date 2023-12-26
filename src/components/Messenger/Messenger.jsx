@@ -14,23 +14,30 @@ export class Messenger extends Component {
 
     this.state = {
       messages: [],
+      currentChat: window.location.href.replace(/\http\:\/\/localhost\:8080\/chats\//, ''),
       chats: {
         '1': {
           id: 1,
-          messages: [],
+          messages: [
+            { text: 'Привет! Это чат №1', author: 'Bot' }
+          ],
           name: 'Chat 1'
         },
         '2': {
           id: 2,
-          messages: [],
+          messages: [
+            { text: 'Привет! Это чат №2', author: 'Bot' }
+          ],
           name: 'Chat 2'
         },
         '3': {
           id: 3,
-          messages: [],
+          messages: [
+            { text: 'Привет! Это чат №3', author: 'Bot' }
+          ],
           name: 'Chat 3'
         },
-      }
+      },
     }
 
     // this.interval = null;
@@ -45,6 +52,7 @@ export class Messenger extends Component {
 
   componentDidUpdate() {
     let { messages } = this.state;
+
     if (messages.length) {
       let lastMessage = messages.length - 1;
       let author = messages[lastMessage].author !== 'Bot' ? messages[lastMessage].author : null;
@@ -64,13 +72,14 @@ export class Messenger extends Component {
   handleMessageSend = (message) => {
     // this.setState({ messages: this.state.messages.concat([{ text: message.text, author: message.author }]) });
     if (message.text && message.author) {
-      console.log(this.props);
+      let currentChat = window.location.href.replace(/\http\:\/\/localhost\:8080\/chats\//, '');
+      this.setState({ currentChat: currentChat });
       this.setState(({ messages }) => ({ messages: messages.concat([message]) }));
     }
   }
 
   render() {
-    let { messages } = this.state;
+    let { messages } = this.state.chats[this.state.currentChat];
 
     return (
       <div>
