@@ -1,0 +1,16 @@
+.layout {
+  // width: 90%;
+  min-height: 80vh;
+  display: flex;
+  justify-content: space-between;
+  background: beige;
+  padding: 10px;
+}
+
+section{
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

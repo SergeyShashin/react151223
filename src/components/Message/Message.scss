@@ -1,0 +1,31 @@
+.message {
+  background: aquamarine;
+  width: percentage(3/10);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+
+  &-owner {
+    align-self: flex-start;
+  }
+
+  &-companion {
+    align-self: flex-end;
+  }
+
+  .sender {
+    color: gray;
+    align-self: end;
+    font-size: 14px;
+  }
+
+}
+
+// .sender {
+//   color: gray;
+//   align-self: end;
+//   font-size: 1em;
+// }
